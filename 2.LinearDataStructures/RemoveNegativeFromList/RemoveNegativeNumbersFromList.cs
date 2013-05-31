@@ -23,7 +23,7 @@ namespace RemoveNegativeFromList
                 var cleared = ClearNegatives(list);
                 Console.WriteLine("Cleared list: {0}", Utilities.Join(cleared.ToArray()));
             }
-            catch(ArgumentException ex)
+            catch (ArgumentException ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -35,7 +35,7 @@ namespace RemoveNegativeFromList
 
             for (int i = 0; i < list.Count; i++)
             {
-                if (list[i] >= 0 )
+                if (list[i] >= 0)
                 {
                     clearedList.Add(list[i]);
                 }

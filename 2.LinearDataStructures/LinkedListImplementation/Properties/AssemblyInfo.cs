@@ -1,23 +1,27 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("RemoveNegativeFromList")]
+[assembly: AssemblyTitle("LinkedListImplementation")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("RemoveNegativeFromList")]
+[assembly: AssemblyProduct("LinkedListImplementation")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
+
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
 // COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
+
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("67328b16-447a-4844-8853-97138fe3cd70")]
+[assembly: Guid("d6f4edc6-ec0f-4679-8d1d-c8d39118131f")]
+
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version

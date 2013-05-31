@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Utils
 {
@@ -15,7 +13,7 @@ namespace Utils
             string line = Console.ReadLine();
             List<int> integers = new List<int>();
 
-            while(!string.IsNullOrWhiteSpace(line))
+            while (!string.IsNullOrWhiteSpace(line))
             {
                 if (int.TryParse(line, out num) && num > 0)
                 {

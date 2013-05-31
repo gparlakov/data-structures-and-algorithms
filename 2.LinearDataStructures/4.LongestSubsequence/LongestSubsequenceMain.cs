@@ -16,7 +16,6 @@ namespace LongestSubsequence
 
         private static void Main(string[] args)
         {
-
             var list = ListGenerator.GetListIntegers(Min, Max); 
             var longestSubsequence = Utilities.GetLongestSubsequenceOfRepeating(list);
 

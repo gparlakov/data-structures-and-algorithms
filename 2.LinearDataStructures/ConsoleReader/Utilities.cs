@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Utils
 {
@@ -80,10 +79,74 @@ namespace Utils
                     tempList.Clear();
                     tempList.Add(baseElem);
                 }
-            }            
+            }
 
             return maxList;
         }
+
+        /// <summary>
+        /// Populates a dictionary with key the number and value the number of its occurences
+        /// </summary>
+        /// <param name="list">The list from whence to get the numbers</param>
+        /// <returns>Dictionary number -> occurances</returns>
+        /// <example>In list 1,2,3,2,1,5,6,5 -> 1 - 2 times; 2 - 2 times; 3 - 1; 5 - 2; 6 - 1;</example>
+        public static Dictionary<int, int> PopulateOccurenceDictionary(List<int> list)
+        {
+            Dictionary<int, int> occurenceOfNumbers = new Dictionary<int, int>();
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (occurenceOfNumbers.ContainsKey(list[i]))
+                {
+                    occurenceOfNumbers[list[i]]++;
+                }
+                else
+                {
+                    occurenceOfNumbers.Add(list[i], 1);
+                }
+            }
+
+            return occurenceOfNumbers;
+        }
+               
+        #region Printing Methods
+
+        public static void PrintSorted(List<int> list)
+        {
+            ThrowExceptionIfEmptyOrNull(list);
+
+            int[] sorted = new int[list.Count];
+            list.CopyTo(sorted);
+            Array.Sort(sorted);
+
+            Console.WriteLine("Sorted:");
+            Console.WriteLine(Join(sorted));
+        }
+
+        public static void PrintFromStack(Stack<int> stack)
+        {
+            StringBuilder result = new StringBuilder();
+            do
+            {
+                var next = stack.Pop();
+                result.AppendFormat("{0}, ", next);
+            }
+            while (stack.Count > 0);
+
+            Console.WriteLine("Printed from stack (reversed order):\n{0}", result);
+        }
+
+        public static void PrintDictionary(IOrderedEnumerable<KeyValuePair<int, int>> orderedOccurance)
+        {
+            foreach (var item in orderedOccurance)
+            {
+                Console.WriteLine("{0} -> {1}", item.Key, item.Value);
+            }
+        }
+
+        #endregion
+
+        #region Private Methods
 
         private static void ThrowExceptionIfEmptyOrNull(ICollection<int> list)
         {
@@ -109,29 +172,7 @@ namespace Utils
 
             return copy;
         }
-
-        public static void PrintSorted(List<int> list)
-        {
-            ThrowExceptionIfEmptyOrNull(list);
-
-            int[] sorted = new int[list.Count];
-            list.CopyTo(sorted);
-            Array.Sort(sorted);
-
-            Console.WriteLine("Sorted:");
-            Console.WriteLine(Join(sorted));
-        }
-
-        public static void PrintFromStack(Stack<int> stack)
-        {
-            StringBuilder result = new StringBuilder();
-            do
-            {
-                var next = stack.Pop();
-                result.AppendFormat("{0}, ", next);
-            } while (stack.Count > 0);
-
-            Console.WriteLine("Printed from stack (reversed order):\n{0}",result);
-        }
+        
+        #endregion
     }
 }

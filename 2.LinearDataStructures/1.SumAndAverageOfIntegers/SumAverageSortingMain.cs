@@ -1,7 +1,4 @@
-﻿
-
-using System;
-using System.Collections.Generic;
+﻿using System;
 using Utils;
 
 namespace SumAndAverageOfIntegers
@@ -37,6 +34,6 @@ namespace SumAndAverageOfIntegers
                 var stack = Utilities.PutInStack(list);
                 Utilities.PrintFromStack(stack);
             }
-        }       
+        }
     }
 }

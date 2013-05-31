@@ -1,24 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Utils
 {
     public static class ListGenerator
     {
+        private static readonly Random random;
+
         const int RandomListLength = 100;
         const int RandomListMin = 0;
         const int RandomListMax = 15;
-
-        private static readonly Random random;
 
         static ListGenerator()
         {
             random = new Random();
         }
-
 
         /// <summary>
         /// Will genarate 100 items long list of number 0 to 15
@@ -61,6 +58,5 @@ namespace Utils
 
             return randomList;
         }
-
     }
 }
