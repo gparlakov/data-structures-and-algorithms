@@ -20,7 +20,8 @@ namespace QueueImplementation
             {
                 Console.WriteLine(strings.Dequeue());
             }
-
+            
+            //
             //var outOfQueue = strings.Dequeue(); //exception
         }
     }
