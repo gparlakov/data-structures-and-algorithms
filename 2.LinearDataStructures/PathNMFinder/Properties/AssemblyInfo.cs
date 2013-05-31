@@ -1,23 +1,27 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PrintMembersOfComplexSequence")]
+[assembly: AssemblyTitle("PathNMFinder")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PrintMembersOfComplexSequence")]
+[assembly: AssemblyProduct("PathNMFinder")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
+
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
 // COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
+
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("9a7bd2ac-43e5-4613-bcfd-94d4d372c7f7")]
+[assembly: Guid("3f1e1a15-c502-4c32-84c5-0794bdd26fa1")]
+
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version

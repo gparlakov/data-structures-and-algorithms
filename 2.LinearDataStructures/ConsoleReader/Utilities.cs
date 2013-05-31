@@ -84,6 +84,21 @@ namespace Utils
             return maxList;
         }
 
+        public static int ReadIntegerInput(string nameOfArgument)
+        {
+            int n;
+            bool parsed = false;
+            do
+            {
+                Console.WriteLine("Give me number {0}: (integer) : ", nameOfArgument);
+                string line = Console.ReadLine();
+                parsed = int.TryParse(line, out n);
+            }
+            while (!parsed);
+
+            return n;
+        }
+
         /// <summary>
         /// Populates a dictionary with key the number and value the number of its occurences
         /// </summary>

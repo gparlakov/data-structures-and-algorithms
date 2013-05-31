@@ -16,7 +16,6 @@ namespace FindMajorant
         const int MaxNumber = 3;
         const int CountToGenerate = 100;
 
-
         public static void Main(string[] args)
         {
             var listWithMajorant = new List<int> { 2, 2, 3, 3, 2, 3, 4, 3, 3 };
@@ -53,6 +52,5 @@ namespace FindMajorant
 
             return majorants;
         }
-
     }
 }

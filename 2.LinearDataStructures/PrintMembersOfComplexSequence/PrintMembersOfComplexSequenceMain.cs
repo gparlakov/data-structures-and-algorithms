@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-//using System.Linq;
+using Utils;
 
+//using System.Linq;
 namespace PrintMembersOfComplexSequence
 {
     class PrintMembersOfComplexSequenceMain
@@ -10,26 +11,12 @@ namespace PrintMembersOfComplexSequence
 
         static void Main(string[] args)
         {
-            int n = ReadInput();
+            int n = Utilities.ReadIntegerInput("n");
             CalculateMembers(n, MembersToPrintCount);
         }
 
-        private static int ReadInput()
-        {
-            int n;
-            bool parsed = false;
-            do
-            {
-                Console.WriteLine("Give me number n: (integer) : ");
-                string line = Console.ReadLine();
-                parsed = int.TryParse(line, out n);
-            } while (!parsed);
-
-            return n;
-        }
-
         private static IEnumerable<int> CalculateMembers(int firstMember, int count)
-        {            
+        { 
             Queue<int> queueOfMembers = new Queue<int>();
             queueOfMembers.Enqueue(firstMember);
 

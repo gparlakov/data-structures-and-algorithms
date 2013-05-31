@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QueueImplementation
 {
@@ -20,7 +17,6 @@ namespace QueueImplementation
             {
                 Console.WriteLine(strings.Dequeue());
             }
-            
             //
             //var outOfQueue = strings.Dequeue(); //exception
         }

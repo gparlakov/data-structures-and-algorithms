@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Utils;
 
 namespace RemoveOddOccuringNumbers
@@ -29,13 +27,13 @@ namespace RemoveOddOccuringNumbers
             List<int> clearedList = new List<int>();
 
             for (int i = 0; i < list.Count; i++)
-			{
+            {
                 var occurencesOfCurrentNum = occurenceOfNumbers[list[i]];
                 if ((occurencesOfCurrentNum % 2) != 0)
                 {
                     clearedList.Add(list[i]);
                 }
-			}
+            }
 
             return clearedList;
         }

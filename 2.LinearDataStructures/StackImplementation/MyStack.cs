@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StackImplementation
 {
@@ -34,32 +31,32 @@ namespace StackImplementation
 
         public void Push(T element)
         {
-            currentElem++;
+            this.currentElem++;
             if (this.currentElem == this.stackElements.Length - 1)
             {
-                DoubleSizeOfArray();
+                this.DoubleSizeOfArray();
             }
-            this.stackElements[currentElem] = element;
+            this.stackElements[this.currentElem] = element;
         }
 
         public T Peek()
         {
-            if (currentElem < 0)
+            if (this.currentElem < 0)
             {
                 throw new ArgumentException("The stack is empty");
             }
-            T result = this.stackElements[currentElem];
+            T result = this.stackElements[this.currentElem];
             return result;
         }
 
         public T Pop()
         {
-            if (currentElem < 0)
+            if (this.currentElem < 0)
             {
                 throw new ArgumentException("The stack is empty");
             }
-            T result = this.stackElements[currentElem];
-            currentElem--;
+            T result = this.stackElements[this.currentElem];
+            this.currentElem--;
             return result;
         }
 
