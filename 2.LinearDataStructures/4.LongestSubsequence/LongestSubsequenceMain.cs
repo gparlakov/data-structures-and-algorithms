@@ -12,15 +12,18 @@ namespace LongestSubsequence
     class LongestSubsequenceMain
     {
         const int Min = 1;
-        const int Max = 5;
+        const int Max = 3;
 
         private static void Main(string[] args)
         {
             var list = ListGenerator.GetListIntegers(Min, Max); 
             var longestSubsequence = Utilities.GetLongestSubsequenceOfRepeating(list);
 
-            int[] longestToArray = longestSubsequence.ToArray();
-            Console.WriteLine(Utilities.Join(longestToArray));
+            var listJoined = Utilities.Join(list.ToArray());
+            Console.WriteLine("Original Sequence : {0}\nLongest subsequence of repeating:\n",listJoined);
+
+            var longesJoined = Utilities.Join(longestSubsequence.ToArray());
+            Console.WriteLine(longesJoined);
         }
     }
 }

@@ -153,10 +153,13 @@ namespace Utils
 
         public static void PrintDictionary(IOrderedEnumerable<KeyValuePair<int, int>> orderedOccurance)
         {
+            StringBuilder result = new StringBuilder();
             foreach (var item in orderedOccurance)
             {
-                Console.WriteLine("{0} -> {1}", item.Key, item.Value);
+                result.AppendFormat("{0} -> {1}\n", item.Key, item.Value);
             }
+
+            Console.WriteLine(result);
         }
 
         #endregion

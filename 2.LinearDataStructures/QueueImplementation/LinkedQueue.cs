@@ -14,11 +14,15 @@ namespace QueueImplementation
         public LinkedQueue()
         {
             this.elements = new LinkedListImplementation.LinkedList<T>();
+            this.Count = 0;
         }
 
+        public int Count { get; private set; }
+        
         public void Enqueue(T element)
         {
             this.elements.Add(element);
+            this.Count++;
         }
 
         public T Dequeue()
@@ -27,8 +31,11 @@ namespace QueueImplementation
             {
                 throw new ArgumentOutOfRangeException("The queue is empty!");
             }
+
             var firstElem = this.elements[0];
             this.elements.RemoveAt(0);
+            this.Count--;
+
             return firstElem;
         }
 
@@ -45,6 +52,7 @@ namespace QueueImplementation
         public void Clear()
         {
             this.elements = new LinkedListImplementation.LinkedList<T>();
+            this.Count = 0;
         }
     }
 }

@@ -29,6 +29,14 @@ namespace StackImplementation
             this.currentElem = FirstCurrentIndex;
         }
 
+        public int Count
+        {
+            get
+            {
+                return this.currentElem + 1;
+            }
+        }
+
         public void Push(T element)
         {
             this.currentElem++;

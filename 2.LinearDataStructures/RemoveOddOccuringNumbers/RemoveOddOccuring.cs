@@ -6,18 +6,28 @@ using Utils;
 namespace RemoveOddOccuringNumbers
 {
     /// <summary>
-    /// Write a program that removes from given sequence all numbers that occur odd number of times. Example:
+    /// 6. Write a program that removes from given sequence all numbers that occur odd number of times. Example:
     ///<example>{4, 2, 2, 5, 2, 3, 2, 3, 1, 5, 2}  {5, 3, 3, 5}</example>
+    /// 7.Write a program that finds in given array of integers 
+    /// (all belonging to the range [0..1000]) how many times each of them occurs.
     /// </summary>
     public class RemoveOddOccuring
     {
         static void Main(string[] args)
         {
-            var list = ListGenerator.GetListIntegers(0, 10, 50);
-            Console.WriteLine(Utilities.Join(list.ToArray()));
+            var list = ListGenerator.GetListIntegers(0, 10000, 5000);
+            Console.WriteLine("Generated numbers {0}",Utilities.Join(list.ToArray()));
 
             var clearedList = ClearList(list);
-            Console.WriteLine(Utilities.Join(clearedList.ToArray()));
+            Console.WriteLine("\nCleared of odd occuring numbers list: {0}",Utilities.Join(clearedList.ToArray()));
+
+            // task 7.
+
+            var occurences = Utilities.PopulateOccurenceDictionary(list);
+            var orderedByNumber = occurences.OrderBy(x => x.Key);
+            Console.WriteLine("Number -> occurances count");
+            Utilities.PrintDictionary(orderedByNumber);
+
         }
 
         private static List<int> ClearList(List<int> list)
@@ -29,7 +39,7 @@ namespace RemoveOddOccuringNumbers
             for (int i = 0; i < list.Count; i++)
             {
                 var occurencesOfCurrentNum = occurenceOfNumbers[list[i]];
-                if ((occurencesOfCurrentNum % 2) != 0)
+                if ((occurencesOfCurrentNum % 2) == 0)
                 {
                     clearedList.Add(list[i]);
                 }

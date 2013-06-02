@@ -39,7 +39,7 @@ namespace LinkedListImplementation
             linkedList.CopyTo(copied, 1);
             Console.WriteLine("Copied to array (first element left blank):\n{0}",
                 Utilities.Join(copied));
-            //linkedList.CopyTo(copied, 2); // throws exception because copied array isn't big enough
+            //linkedList.CopyTo(copied, 2); // throws exception because copied array isn"t big enough
         }
   
         private static void PrintoutList(LinkedList<int> linkedList)

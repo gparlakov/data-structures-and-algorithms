@@ -16,7 +16,9 @@ namespace StackImplementation
             stack.Push("me4e");
             stack.Push("na");
             stack.Push("pute4e");
+            Console.WriteLine(stack.Count);
             Console.WriteLine(stack.Pop());
+            Console.WriteLine(stack.Count);
         }
     }
 }
