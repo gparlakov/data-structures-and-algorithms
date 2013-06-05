@@ -23,6 +23,5 @@ namespace FindShortestPathInMatrix
         {
             this.Value = value;
         }
-
     }
 }

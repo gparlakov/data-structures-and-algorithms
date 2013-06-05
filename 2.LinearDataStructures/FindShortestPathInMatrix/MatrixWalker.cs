@@ -26,8 +26,7 @@ namespace FindShortestPathInMatrix
         public Tuple<int, int> StartingPostion { get; private set; }
 
         public void MarkShortestPath()
-        {
-            
+        {            
             var rowStart = this.StartingPostion.Item1;
             var colStart = this.StartingPostion.Item2;
 
