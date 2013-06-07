@@ -18,7 +18,7 @@ namespace FileSystemTree
             var sizeInMB = CaculateFullSizeInMB(startFolder);
             Console.WriteLine("\nDone");
             Thread.Sleep(500);
-            Console.WriteLine("All files in directory {0} have a total size of {1:f2} MB",StartDirectory, sizeInMB);
+            Console.WriteLine("All files in directory {0} have a total size of {1:f2} MB", StartDirectory, sizeInMB);
         }
                 
         private static double CaculateFullSizeInMB(Folder startFolder)
@@ -58,7 +58,7 @@ namespace FileSystemTree
             foreach (var dir in directories)
             {
                 try
-                {                   
+                { 
                     var newFolder = new Folder(dir);
                     startFolder.AddFolder(newFolder);
                     BuildFolderTree(newFolder);

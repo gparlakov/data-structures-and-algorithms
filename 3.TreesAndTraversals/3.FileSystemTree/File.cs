@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FileSystemTree
 {
@@ -38,22 +35,5 @@ namespace FileSystemTree
         }
         
         public int Size { get; private set; }
-
-        private string ExtractFileNameFromFullPath(string value)
-        {
-            string fileName = null;
-            var slashIndex = value.LastIndexOf('\\');
-            if (slashIndex < 0)
-            {
-                fileName = value;
-            }
-            else
-            {
-                fileName = value.Substring(slashIndex + 1);
-            }
-
-            return fileName;
-        }
-        
     }
 }

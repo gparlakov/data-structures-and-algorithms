@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TreeOfNNodes
 {
@@ -23,11 +21,11 @@ namespace TreeOfNNodes
 
         private static string[] ReadInput()
         {
-            var input = new string[] {"7", "2 4", "3 2", "5 0", "3 5", "5 6", "5 1" };
+            var input = new string[] { "7", "2 4", "3 2", "5 0", "3 5", "5 6", "5 1" };
             return input;
         }
 
-        private static Tuple<int,int>[] GetNodeValues(string[] input)
+        private static Tuple<int, int>[] GetNodeValues(string[] input)
         {
             var valueChildPair = new List<Tuple<int, int>>();
             for (int i = 1; i < input.Length; i++)
@@ -40,6 +38,5 @@ namespace TreeOfNNodes
 
             return valueChildPair.ToArray();
         }
-
     }
 }

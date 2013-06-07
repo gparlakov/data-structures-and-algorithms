@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.TreeOfNNodes", "1.TreeOfNNodes\1.TreeOfNNodes.csproj", "{B0565A54-CBF9-4C6D-B3DC-D3CB9306F525}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.TraverseWindowsDirectory", "2.TraverseWindowsDirectory\2.TraverseWindowsDirectory.csproj", "{F5406662-CDEE-40A6-8432-45DEA5A990C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.FileSystemTree", "3.FileSystemTree\3.FileSystemTree.csproj", "{24CAB837-9ADC-430B-9345-FBBFC5D84B8F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{B0565A54-CBF9-4C6D-B3DC-D3CB9306F525}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0565A54-CBF9-4C6D-B3DC-D3CB9306F525}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0565A54-CBF9-4C6D-B3DC-D3CB9306F525}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5406662-CDEE-40A6-8432-45DEA5A990C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5406662-CDEE-40A6-8432-45DEA5A990C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5406662-CDEE-40A6-8432-45DEA5A990C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5406662-CDEE-40A6-8432-45DEA5A990C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24CAB837-9ADC-430B-9345-FBBFC5D84B8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24CAB837-9ADC-430B-9345-FBBFC5D84B8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24CAB837-9ADC-430B-9345-FBBFC5D84B8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24CAB837-9ADC-430B-9345-FBBFC5D84B8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

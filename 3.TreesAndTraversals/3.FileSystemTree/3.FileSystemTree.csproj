@@ -45,7 +45,6 @@
     <Compile Include="File.cs" />
     <Compile Include="Folder.cs" />
     <Compile Include="FileSystemTreeMain.cs" />
-    <Compile Include="ProgressHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

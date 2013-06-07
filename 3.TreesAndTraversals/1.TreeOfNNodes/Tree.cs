@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TreeOfNNodes
 {
     public class Tree
-    {        
-        private List<TreeNode> treeNodes;
+    { 
+        private readonly List<TreeNode> treeNodes;
 
         public Tree()
         {
@@ -21,8 +19,8 @@ namespace TreeOfNNodes
         {
             for (int i = 0; i < valueChildPairs.Length; i++)
             {
-                TreeNode parent = AddNode(valueChildPairs[i].Item1);
-                TreeNode child = AddNode(valueChildPairs[i].Item2);
+                TreeNode parent = this.AddNode(valueChildPairs[i].Item1);
+                TreeNode child = this.AddNode(valueChildPairs[i].Item2);
                 parent.AddChild(child);
             }
 
@@ -43,9 +41,9 @@ namespace TreeOfNNodes
             }
 
             List<int> values = this.GetAllValues();
-            RemoveChildValuesFromList(values);
+            this.RemoveChildValuesFromList(values);
 
-            var root = FindNodeByValue(values[0]);
+            var root = this.FindNodeByValue(values[0]);
 
             return root;
         }
@@ -71,7 +69,7 @@ namespace TreeOfNNodes
                     queue.Enqueue(nextNode.ChildNodes[i]);
                 }
 
-                allPaths.AddRange(FindAllPathsStartingFrom(nextNode));
+                allPaths.AddRange(this.FindAllPathsStartingFrom(nextNode));
             }
 
             Array.Sort(allPaths.ToArray());
@@ -97,7 +95,7 @@ namespace TreeOfNNodes
                         stack.Push(nextNode.ChildNodes[i]);
                     }
 
-                    if (CheckIfIsSearchedNodeType(nextNode, type))
+                    if (this.CheckIfIsSearchedNodeType(nextNode, type))
                     {
                         list.Add(nextNode);
                     }

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FileSystemTree
 {
@@ -10,13 +8,11 @@ namespace FileSystemTree
 
     public class Folder
     {
-        public event ProgressHandler AddedNewFolder;
+        private readonly List<Folder> folders;
+
+        private readonly List<File> files;
 
         private string name;
-
-        private List<Folder> folders;
-
-        private List<File> files;
 
         public Folder(string fullPath)
         {
@@ -25,6 +21,8 @@ namespace FileSystemTree
             this.folders = new List<Folder>();
             this.files = new List<File>();
         }
+
+        public event ProgressHandler AddedNewFolder;
 
         public string FullPath { get; private set; }
         
@@ -53,7 +51,7 @@ namespace FileSystemTree
         public void AddFolder(Folder folder)
         {
             this.folders.Add(folder);
-            OnChanged(EventArgs.Empty);
+            this.OnChanged(EventArgs.Empty);
         }
 
         public File[] GetFiles()
@@ -72,6 +70,14 @@ namespace FileSystemTree
             return foldersCopy;
         }
 
+        public void OnChanged(EventArgs args)
+        {
+            if (this.AddedNewFolder != null)
+            {
+                this.AddedNewFolder(new Object(), args);
+            }
+        }
+
         private string ExtractFolderNameFromFullPath(string value)
         {
             string folderName = null;
@@ -87,14 +93,5 @@ namespace FileSystemTree
 
             return folderName;
         }
-
-        public void OnChanged(EventArgs args)
-        {
-            if (AddedNewFolder != null)
-            {
-                AddedNewFolder(new Object(), args);
-            }
-        }
-
     }
 }
