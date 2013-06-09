@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using Wintellect.PowerCollections;
 
 namespace TreeOfNNodes
 {
     public class Tree
     { 
         private readonly List<TreeNode> treeNodes;
+
+        private IEnumerable<string> allPaths;
 
         public Tree()
         {
@@ -15,6 +19,7 @@ namespace TreeOfNNodes
 
         public TreeNode Root { get; private set; }
 
+        #region public methods
         public void BuildTree(Tuple<int, int>[] valueChildPairs)
         {
             for (int i = 0; i < valueChildPairs.Length; i++)
@@ -58,9 +63,112 @@ namespace TreeOfNNodes
 
         public string FindLongestPathInTree()
         {
+            var allPaths = FindAllSubPaths();
+
+            var sorted = allPaths.OrderByDescending(x => x.Length).ThenByDescending(x => x).ToArray<string>();
+
+            return sorted[0];
+        }
+
+        public IEnumerable<string> FindAllPathsWithSumOf(int sum)
+        {
+            var allPaths = FindAllSubPaths();
+
+            var sumsPathsPairs = CalcSumsOfPathsOrTrees(allPaths);
+
+            return sumsPathsPairs[sum];            
+        }
+
+        public IEnumerable<string> FindAllTreesWithSumOf(int sum)
+        {
+            var allTrees = FindAllTrees();
+
+            var sumTreePairs = CalcSumsOfPathsOrTrees(allTrees);
+
+            return sumTreePairs[sum];
+        }
+        
+        #endregion
+
+        #region private methods
+        //5 & 6
+        private IEnumerable<string> FindAllTrees()
+        {
+            Queue<TreeNode> nodes = new Queue<TreeNode>();
+            nodes.Enqueue(this.Root);
+
+            List<string> trees = new List<string>();
+            while (nodes.Count > 0)
+            {
+                var nextNode = nodes.Dequeue();
+
+                var subTree = GetTreeStartingFrom(nextNode);
+                trees.Add(subTree);
+
+                foreach (var node in nextNode.ChildNodes)
+                {
+                    nodes.Enqueue(node);
+                }
+            }
+
+            return trees;
+        }
+
+        private string GetTreeStartingFrom(TreeNode nextNode)
+        {
+            StringBuilder tree = new StringBuilder();
+            Queue<TreeNode> subNodes = new Queue<TreeNode>();
+            subNodes.Enqueue(nextNode);
+            while (subNodes.Count > 0)
+            {
+                var node = subNodes.Dequeue();
+                tree.AppendFormat("{0}", node.Value);
+
+                foreach (var child in node.ChildNodes)
+                {
+                    subNodes.Enqueue(child);
+                }
+            }
+
+            return tree.ToString();
+        }
+
+        private MultiDictionary<int, string> CalcSumsOfPathsOrTrees(IEnumerable<string> allPathsOrTrees)
+        {
+            var sumsPathsPairs = new MultiDictionary<int, string>(true);
+
+            foreach (var path in allPathsOrTrees)
+            {
+                var sum = CalcSum(path);
+                sumsPathsPairs.Add(sum, path);
+            }
+
+            return sumsPathsPairs;
+        }
+
+        private int CalcSum(string path)
+        {
+            int sum = 0;
+            for (int i = 0; i < path.Length; i++)
+            {
+                sum += int.Parse(path[i].ToString());
+            }
+
+            return sum;
+        }
+        
+        //4
+        private IEnumerable<string> FindAllSubPaths()
+        {
+            if (this.allPaths != null)
+            {
+                return this.allPaths;
+            }
+
             var allPaths = new List<string>();
 
             var queue = new Queue<TreeNode>();
+            queue.Enqueue(this.Root);
             while (queue.Count > 0)
             {
                 var nextNode = queue.Dequeue();
@@ -72,16 +180,39 @@ namespace TreeOfNNodes
                 allPaths.AddRange(this.FindAllPathsStartingFrom(nextNode));
             }
 
-            Array.Sort(allPaths.ToArray());
+            this.allPaths = allPaths;
 
-            return allPaths[0];
+            return allPaths;
         }
 
-        private IEnumerable<string> FindAllPathsStartingFrom(TreeNode nextNode)
+        private IEnumerable<string> FindAllPathsStartingFrom(TreeNode node, string pathToHere = null)
         {
-            throw new NotImplementedException();
-        }
+            List<string> nextPaths = new List<string>();
 
+            if (pathToHere == null)
+            {
+                pathToHere = node.Value.ToString();
+            }
+            else
+            {
+                pathToHere += node.Value.ToString();
+            }
+
+            if (node.ChildNodes.Count == 0)
+            {
+                nextPaths.Add(pathToHere);
+                return nextPaths;
+            }
+            nextPaths.Add(pathToHere);
+            foreach (var child in node.ChildNodes)
+            {
+                nextPaths.AddRange(FindAllPathsStartingFrom(child, pathToHere));
+            }
+
+            return nextPaths;
+        }
+        
+        //1 2 3
         private void FindInTree(TypeNodes type, List<TreeNode> list)
         {
             var stack = new Stack<TreeNode>();
@@ -177,5 +308,6 @@ namespace TreeOfNNodes
 
             return values;
         }
+        #endregion
     }
 }
