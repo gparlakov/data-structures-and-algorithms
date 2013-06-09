@@ -1,0 +1,6 @@
+﻿Find(Shmatkata)
+Find(Kireto)
+Find(Kireto, Blagoevgrad);
+Find(Iotoa)
+Find(Petrova)
+Find(Petrova, Sofiq)
