@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Wintellect.PowerCollections;
 
 namespace Students
 {
-    class Program
+    /// <summary>
+    /// Using SortedDictionary<K,T> print the courses in alphabetical order and for each of 
+    /// them prints the students ordered by family and then by name:
+    /// </summary>
+    class StudentSystemMain
     {
         const string StudentsFile = "..\\..\\students.txt";
 
@@ -38,7 +41,11 @@ namespace Students
 
         private static OrderedMultiDictionary<string, Student> GenerateStudentsDataStructure()
         {
-            var coursesAndStudents = new OrderedMultiDictionary<string, Student>(true, (x,y)=>x.CompareTo(y) , (x,y) => x.Name.CompareTo(y.Name));
+            var coursesAndStudents = new OrderedMultiDictionary<string, Student>(
+                true, 
+                (x,y)=>x.CompareTo(y), 
+                (x,y) => x.Name.CompareTo(y.Name));
+
             var content = ReadFile(StudentsFile);
 
             foreach (var line in content)

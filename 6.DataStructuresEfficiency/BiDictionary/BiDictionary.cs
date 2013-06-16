@@ -28,29 +28,20 @@ namespace BiDictionaryImplementation
             return found;
         }
 
-        public ICollection<T> FindAllBySecondKeyKey(K2 key)
+        public ICollection<T> FindAllBySecondKey(K2 key)
         {
             var found = this.keyTwoCollection[key];
             return found;
         }
 
-        public KeyValuePair<string, ICollection<T>> FindAll(K1 key1, K2 key2)
+        public IEnumerable<T> FindAll(K1 key1, K2 key2)
         {
             var resultFromKeyOne = this.FindAllByFirstKey(key1);
-            var resultFromKeyTwo = this.FindAllBySecondKeyKey(key2);
-
-            var intersection = this.GetIntersection(resultFromKeyOne, resultFromKeyTwo);
+            var resultFromKeyTwo = this.FindAllBySecondKey(key2);
+           
+            var intersection = resultFromKeyOne.Intersect(resultFromKeyTwo);
 
             return intersection;
-        }
-
-        private KeyValuePair<string, ICollection<T>> GetIntersection(
-            ICollection<T> resultFromKeyOne, 
-            ICollection<T> resultFromKeyTwo)
-        {
-            throw new NotImplementedException();
-        }
-
-       
+        }              
     }
 }

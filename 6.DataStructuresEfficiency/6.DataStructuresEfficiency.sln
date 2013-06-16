@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.Students", "1.Students\1.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.CollectionOfArticles", "2.CollectionOfArticles\2.CollectionOfArticles.csproj", "{2AA5D961-386F-4282-94D6-F0048EBBA60E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.BiDictionary", "BiDictionary\3.BiDictionary.csproj", "{BB2D7980-9A49-45FE-8C54-397268982877}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{2AA5D961-386F-4282-94D6-F0048EBBA60E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AA5D961-386F-4282-94D6-F0048EBBA60E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AA5D961-386F-4282-94D6-F0048EBBA60E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB2D7980-9A49-45FE-8C54-397268982877}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB2D7980-9A49-45FE-8C54-397268982877}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB2D7980-9A49-45FE-8C54-397268982877}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB2D7980-9A49-45FE-8C54-397268982877}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

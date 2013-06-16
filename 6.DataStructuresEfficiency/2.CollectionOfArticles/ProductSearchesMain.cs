@@ -8,6 +8,12 @@ using Wintellect.PowerCollections;
 
 namespace CollectionOfProducts
 {
+    /// <summary>
+    /// A large trade company has millions of articles, each 
+    /// described by barcode, vendor, title and price. Implement a
+    /// data structure to store them that allows fast retrieval of all 
+    /// articles in given price range [x…y]
+    /// </summary>
     class ProductSearchesMain
     {
         const string ProductsFile = "..\\..\\articles.txt";
