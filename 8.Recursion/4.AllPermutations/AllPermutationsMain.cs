@@ -36,7 +36,6 @@ namespace AllPermutations
                     used[i] = false;
                 }                   
             }
-        }
-        
+        }        
     }
 }

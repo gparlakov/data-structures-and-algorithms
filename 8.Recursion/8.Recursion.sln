@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8.FindIfPathExistsBetweenTw
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "9.10.AdjecentEmptyCells", "9.AdjecentEmptyCells\9.10.AdjecentEmptyCells.csproj", "{887CA759-7A06-40F5-8EEC-29BE1229F00B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11.PermutationsWithRepetition", "11.PermutationsWithRepetition\11.PermutationsWithRepetition.csproj", "{C9F734EB-391C-457E-80E4-771DCE5EF931}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{887CA759-7A06-40F5-8EEC-29BE1229F00B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{887CA759-7A06-40F5-8EEC-29BE1229F00B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{887CA759-7A06-40F5-8EEC-29BE1229F00B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9F734EB-391C-457E-80E4-771DCE5EF931}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9F734EB-391C-457E-80E4-771DCE5EF931}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9F734EB-391C-457E-80E4-771DCE5EF931}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9F734EB-391C-457E-80E4-771DCE5EF931}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
