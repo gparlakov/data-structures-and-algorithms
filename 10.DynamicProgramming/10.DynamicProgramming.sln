@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.KnapsackProblem", "1.Knap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.MinimumEditDistance", "MinimumEditDistance\2.MinimumEditDistance.csproj", "{CAF937C1-6BE0-4617-95C6-E2A082049D74}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guitar", "Guitar\Guitar.csproj", "{A2263060-DCC4-4A58-A863-ED67C066E586}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{CAF937C1-6BE0-4617-95C6-E2A082049D74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAF937C1-6BE0-4617-95C6-E2A082049D74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAF937C1-6BE0-4617-95C6-E2A082049D74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2263060-DCC4-4A58-A863-ED67C066E586}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2263060-DCC4-4A58-A863-ED67C066E586}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2263060-DCC4-4A58-A863-ED67C066E586}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2263060-DCC4-4A58-A863-ED67C066E586}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
