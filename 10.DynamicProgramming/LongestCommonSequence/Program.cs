@@ -14,8 +14,10 @@ namespace LongestCommonSequence
 
         static void Main()
         {
-            str2 = "GCCCTAGCG";
-            str1 = "GCGCAATG";
+            //str2 = "GCCCTAGCG";
+            //str1 = "GCGCAATG";
+            str2 = "pisatel";
+            str1 = "kosmonavt";
 
             // empty matrix where row 0 and column 0 represent the problem with one empty string - no common exist
             matrix = new int[str1.Length + 1, str2.Length + 1];
@@ -36,6 +38,7 @@ namespace LongestCommonSequence
             }
 
             PrintLCS(str1.Length, str2.Length);
+            Console.WriteLine();
         }
 
         static void PrintLCS(int row, int col)

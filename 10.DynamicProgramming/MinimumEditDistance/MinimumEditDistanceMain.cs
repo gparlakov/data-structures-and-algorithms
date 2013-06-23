@@ -6,27 +6,30 @@ using System.Threading.Tasks;
 
 namespace MinimumEditDistance
 {
-
     public class MinimumEditDistanceMain
     {
+        const double Replace = 1.0;
+        const double Delete = 0.9;
+        const double Insert = 0.8;
+        
+        // works for two words of length differecne of 1
         static void Main()
         {
-            var replace = 1.0;
-            var delete = 0.9;
-            var insert = 0.8;
+            //var originalWord = "developer"; // "duma";
+            //var editedWord = "enveloped"; // "uma";
+            //var originalWord =  "dbbk";
+            //var editedWord =  "baba";
+            var originalWord = "kosmonavt";//qq
+            var editedWord = "pisatelqt";
 
-            var originalWord = "developer"; // "duma";
-            var editedWord = "enveloped"; // "uma";
-            
-            //var originalWord =  "duma";
-            //var editedWord =  "umak";
-
-            //var originalWord = "rqpa";
-            //var editedWord = "baba";
-
+            var med = FindMED(editedWord, originalWord);
+        }
+  
+        private static double FindMED(string editedWord, string originalWord)
+        {
             var medMatrix = new double[editedWord.Length + 1, originalWord.Length + 1];
 
-            FillBaseCases(originalWord, medMatrix, delete, editedWord, insert);
+            FillBaseCases(originalWord, medMatrix, Delete, editedWord, Insert);
 
             for (int editedWordIndex = 1; editedWordIndex < medMatrix.GetLength(0); editedWordIndex++)
             {
@@ -36,50 +39,78 @@ namespace MinimumEditDistance
                     var editedChar = editedWord[editedWordIndex - 1];
                     var actionCost = 0.0;
 
-                    // case where edited word (sofar)is shorter from original
-                    // action = delete or nothing if chars are same
-                    if (editedWordIndex < originalWordIndex)
+                    if (originalChar != editedChar)
                     {
-                        if (originalChar != editedChar)
-                        {
-                            actionCost = delete;
-                        }
-                    }
+                        // in the cell M,N we'll have the solution of problem from 
+                        //string with length N to string with length M
+                        // and we take the char N (n - 1) from original 
+                        //string and compare it to char M (m-1) in desired string
+                        // if chars are different  we check to see where is the
+                        //best solution of least problem
+                        // if it's in the upper cell - solution from string M to 
+                        //edited N - 1 so we insert the 1 char left
+                        // upper - left cell - solution of problem form M - 1 to
+                        //N - 1 so we replace the char to get to that problem
+                        // left - solution of M - 1 to N so we delete the extra 
+                        //char to get that solution
+                        Cells cell = Cells.Up;
 
-                    // case wher edited word (sofar) is longer than original 
-                    // action = replace or nothing if chars are same
-                    else //if (editedWordIndex > originalWordIndex)
+                        var minOfThreeCells =
+                            GetMinActionCost(editedWordIndex, originalWordIndex, medMatrix, out cell);
+
+                        if (cell == Cells.Up)
+                        {
+                            actionCost = Insert;
+                        }
+                        if (cell == Cells.UpLeft)
+                        {
+                            actionCost = Replace;
+                        }
+                        if (cell == Cells.Left)
+                        {
+                            actionCost = Delete;
+                        }
+
+                        medMatrix[editedWordIndex, originalWordIndex] = actionCost + minOfThreeCells;
+                    }
+                    // the chars are the same so we take the uper left solution 
+                    // because we wond use that char like dum -> umm 
+                    // when we reach last m we see they are same so we take m
+                    // and we have du->um which is the solution of the problem from upper left cell
+                    // so in here 
+                    else
                     {
-                        if (originalChar != editedChar)
-                        {
-                            actionCost = replace;
-                        }
+                        medMatrix[editedWordIndex, originalWordIndex] =
+                            medMatrix[editedWordIndex - 1, originalWordIndex - 1];
                     }
-
-                    var minOfThreeCells = GetMinActionCost(editedWordIndex, originalWordIndex, medMatrix);
-
-                    medMatrix[editedWordIndex, originalWordIndex] = actionCost + minOfThreeCells;
                 }
             }
 
             PrintMEDMatrix(originalWord, medMatrix, editedWord);
 
+            var result = medMatrix[medMatrix.GetLength(0) - 1, medMatrix.GetLength(1) - 1];
             Console.WriteLine("Minimum Edit Distance between {0} and {1} is {2}",
-                originalWord, editedWord, medMatrix[medMatrix.GetLength(0) - 1, medMatrix.GetLength(1) - 1]);
-        }
+                originalWord, editedWord, result);
 
-        private static double GetMinActionCost(int row, int col, double[,] medMatrix)
+            return result;
+        }  
+       
+        private static double GetMinActionCost(int row, int col, 
+            double[,] medMatrix, out Cells fromWhichCell)
         {
             var min = medMatrix[row - 1, col];
+            fromWhichCell = Cells.Up;
             
             if (medMatrix[row - 1, col - 1] < min)
             {
                 min = medMatrix[row - 1, col - 1];
+                fromWhichCell = Cells.UpLeft;
             }
 
             if (medMatrix[row, col - 1] < min)
             {
                 min = medMatrix[row, col - 1];
+                fromWhichCell = Cells.Left;
             }
 
             return min;
@@ -124,5 +155,12 @@ namespace MinimumEditDistance
                 Console.WriteLine();
             }
         }
+    }
+
+    public enum Cells
+    {
+        Up = 1,
+        UpLeft = 2,
+        Left = 3
     }
 }
