@@ -303,11 +303,12 @@ namespace _5.ShoppingCenter
             foreach (var product in found)
             {
                 if (this.Products.Contains(product))
-                {
+                {                    
                     this.Products.Remove(product);
                     countDeleted++;
                 }                                   
             }
+            this.Producers.Remove(producer);
 
             return countDeleted;
         }
@@ -320,14 +321,17 @@ namespace _5.ShoppingCenter
             var intersection = foundByName.Intersect(foundByProducer);
 
             var counterDeleted = 0;
-            foreach (var item in intersection)
+            foreach (var item in foundByName)
             {
-                if (this.Products.Contains(item))
+                if (foundByProducer.Contains(item) && this.Products.Contains(item))
                 {
                     this.Products.Remove(item);
                     counterDeleted++;
                 }
             }
+
+            this.Names.Remove(name);
+            this.Producers.Remove(producer);
 
             return counterDeleted;
         }
